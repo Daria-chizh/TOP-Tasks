@@ -1,0 +1,25 @@
+input {
+  height: 40px;
+  width: 300px;
+}
+
+.input-checkbox {
+  height: 20px;
+  width: 20px;
+  float:right;
+  margin-right: 20px;
+  margin-top: 10px;
+  border-radius: 9px;
+
+}
+
+.task {
+  width: 300px;
+  height: 40px;
+  border: 2px #808080 solid;
+  border-radius: 20px;
+}
+
+label {
+  margin-left: 20px;
+}
