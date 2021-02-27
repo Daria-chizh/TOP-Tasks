@@ -22,6 +22,7 @@ const pinnedTasksContainer = document.getElementById('pinnedTasks');
 const allTasksContainer = document.getElementById('allTasks');
 const inputTaskNameElement = document.getElementById('taskName');
 const errorElement = document.getElementById('error');
+const taskNameFormElement = document.getElementById('taskNameForm');
 
 function renderTask(task, refreshTasksFn) {
   const taskContainer = document.createElement('div');
@@ -97,16 +98,15 @@ inputTaskNameElement.addEventListener('input', () => {
   refreshTaskList();
 });
 
-inputTaskNameElement.addEventListener('keypress', (event) => {
-  if (event.code === 'Enter') {
-    if (taskName) {
-      const task = new Task(taskName, false);
-      tasks.push(task);
-      taskName = '';
-      inputTaskNameElement.value = '';
-      refreshTaskList();
-    } else {
-      errorElement.textContent = 'Ошибка, заполните поле';
-    }
+taskNameFormElement.addEventListener('submit', (event) => {
+  if (taskName) {
+    const task = new Task(taskName, false);
+    tasks.push(task);
+    taskName = '';
+    inputTaskNameElement.value = '';
+    refreshTaskList();
+  } else {
+    errorElement.textContent = 'Ошибка, заполните поле';
   }
+  event.preventDefault();
 });
